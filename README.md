@@ -3,6 +3,8 @@
 ![Release Status](https://img.shields.io/badge/status-beta-yellow.svg)
 [![License](https://img.shields.io/badge/License-MPL--2.0-blue.svg)](https://spdx.org/licenses/MPL-2.0.html)
 
+[![MinIO](https://raw.githubusercontent.com/minio/minio/master/.github/logo.svg?sanitize=true)](https://min.io)
+
 MinIO is a open source, S3 compatible, enterprise hardened and high performance distributed object storage system.
 * Official Site: https://min.io
 * GitHub Site: https://github.com/minio/minio
