@@ -1,0 +1,28 @@
+[Unit]
+Description=MinIO Object Storage Service
+Documentation=https://docs.min.io
+After=network-online.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+User=minio
+Group=minio
+EnvironmentFile=/etc/sysconfig/minio
+ExecStart=/usr/sbin/minio server $MINIO_OPTIONS $MINIO_VOLUMES
+
+# Don't want to see an automated SIGKILL ever
+SendSIGKILL=no
+
+Restart=on-failure
+RestartSec=5s
+
+# Increase the default maximum file descriptor number that can be opened by this process
+LimitNOFILE=65536
+
+# Give a reasonable amount of time for the server to start up/shut down
+TimeoutSec=300
+
+# Place temp files in a secure directory, not /tmp
+PrivateTmp=true

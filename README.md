@@ -22,8 +22,9 @@ This repository contains a *specfile* that you can use to build MinIO from the s
     mkdir ~/rpmbuild/{SPECS,SOURCES}
     
     cd ~/rpmbuild/SOURCES
+    git clone --depth 1 https://github.com/madrisan/specfile-minio
     wget https://github.com/minio/minio/archive/RELEASE.2020-03-14T02-21-58Z.tar.gz
+    mv minio.spec ../SPECS/
     
     cd ~/rpmbuild/SPECS
-    git clone --depth 1 https://github.com/madrisan/specfile-minio
     rpmbuild -ba minio.spec
