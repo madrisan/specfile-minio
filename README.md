@@ -20,12 +20,16 @@ This repository contains a *specfile* that you can use to build MinIO from the s
 ### Build instructions
 
     mkdir ~/rpmbuild/{SPECS,SOURCES}
+    
     for f in minio.conf minio.service; do
       curl -# https://raw.githubusercontent.com/madrisan/specfile-minio/master/$f \
         -o ~/rpmbuild/SOURCES/$f
     done
     curl -# https://raw.githubusercontent.com/madrisan/specfile-minio/master/minio.service \
         -o ~/rpmbuild/SOURCES/minio.service
+    
+    curl -# -L https://github.com/minio/minio/archive/RELEASE.2020-03-14T02-21-58Z.tar.gz \
+        -o ~/rpmbuild/SOURCES/RELEASE.2020-03-14T02-21-58Z.tar.gz
     
     rpmbuild -ba ~/rpmbuild/SPECS/minio.spec
 
