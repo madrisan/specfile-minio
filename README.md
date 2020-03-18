@@ -48,3 +48,9 @@ Here's a simple way to generate a random character sequence:
 ```
 cat /dev/urandom | tr -dc '0-9a-zA-Z-._' | head -c 24; echo
 ```
+
+### Security
+
+See the official documentation pages:
+ * https://docs.min.io/docs/minio-server-configuration-guide.html
+ * https://docs.min.io/docs/how-to-secure-access-to-minio-server-with-tls.html
