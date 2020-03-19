@@ -70,7 +70,7 @@ install -d %{buildroot}%{_sbindir}
 install -p %{name} %{buildroot}%{_sbindir}
 
 install -D -p -m 0644 minio.service %{buildroot}%{_unitdir}/%{daemon_name}.service
-install -D -p -m 0644 minio.conf %{buildroot}%{_sysconfdir}/%{daemon_name}
+install -D -p -m 0644 minio.conf %{buildroot}%{_sysconfdir}/sysconfig/%{daemon_name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -94,7 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.md README_zh_CN.md
 %attr(755,root,root) %{_sbindir}/minio
 %{_unitdir}/%{daemon_name}.service
-%config(noreplace) %{_sysconfdir}/%{daemon_name}
+%config(noreplace) %{_sysconfdir}/sysconfig/%{daemon_name}
 
 %changelog
 * Tue Mar 17 2020 Davide Madrisan <davide.madrisan@gmail.com> - 0.0.20200314022158-1
