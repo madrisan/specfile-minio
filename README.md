@@ -7,7 +7,9 @@
 
 MinIO is a open source, S3 compatible, enterprise hardened and high performance distributed object storage system.
 * Official Site: https://min.io
-* GitHub Site: https://github.com/minio/minio
+* GitHub Sites:
+  * https://github.com/minio/minio
+  * https://github.com/minio/mc
 
 This repository contains the *specfile*s that you can use to build MinIO server and client from the sources.
 
@@ -51,7 +53,7 @@ Note that *git 2.x* is required (tested with version 2.25.1 on Fedora 31 and wit
 
 ### Installation
 
-The resulting .rpm packages can be installed with `rpm` of `dnf`.
+The resulting *.rpm* packages can be installed with `rpm` of `dnf`.
 
 Before starting the *systemd* service `minio.service` you need to customize the configuration file `/etc/sysconfig/minio`.
 The volumes managed by MinIO must be configured in the variable `MINIO_VOLUMES`.
