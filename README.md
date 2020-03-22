@@ -39,17 +39,19 @@ Note that *git 2.x* is required (tested with version 2.25.1 on Fedora 31 and wit
     
     rpmbuild -ba ~/rpmbuild/SPECS/minio.spec
 
-#### Minio client (mc)
+#### Minio client (minio-mc)
 
     mkdir -p ~/rpmbuild/{SPECS,SOURCES}
     
     curl -# https://raw.githubusercontent.com/madrisan/specfile-minio/master/mc.spec \
-        -o ~/rpmbuild/SPECS/mc.spec
+        -o ~/rpmbuild/SPECS/minio-mc.spec
     
     curl -# -L https://github.com/minio/minio/archive/RELEASE.2020-03-14T01-23-37Z.tar.gz \
         -o ~/rpmbuild/SOURCES/RELEASE.2020-03-14T01-23-37Z.tar.gz
     
-    rpmbuild -ba ~/rpmbuild/SPECS/mc.spec
+    rpmbuild -ba ~/rpmbuild/SPECS/minio-mc.spec
+
+Note that the binary has been renamed from `mc` to `minio-mc` to avoid a conflict name with the *Midnight Commander* binary.
 
 ### Installation
 

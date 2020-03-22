@@ -14,7 +14,7 @@
 %global import_path github.com/minio/mc
 
 Summary:        MinIO Client
-Name:           mc
+Name:           minio-mc
 Version:        0.0.%{subver}
 Release:        1%{?dist}
 Vendor:         MinIO, Inc.
@@ -67,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md README_zh_CN.md
-%attr(755,root,root) %{_bindir}/mc
+%attr(755,root,root) %{_bindir}/minio-mc
 
 %changelog
 * Fri Mar 20 2020 Davide Madrisan <davide.madrisan@gmail.com> - 0.0.20200314T012337Z-1
