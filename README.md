@@ -9,7 +9,7 @@ MinIO is a open source, S3 compatible, enterprise hardened and high performance 
 * Official Site: https://min.io
 * GitHub Site: https://github.com/minio/minio
 
-This repository contains a *specfile* that you can use to build MinIO from the sources.
+This repository contains the *specfile*s that you can use to build MinIO server and client from the sources.
 
 ## Usage
 
@@ -17,7 +17,7 @@ This repository contains a *specfile* that you can use to build MinIO from the s
 
     sudo dnf install -y rpm-build golang git
     
-Note that git version 2 is required (tested with version 2.25.1).
+Note that *git 2.x* is required (tested with version 2.25.1 on Fedora 31 and with *git* provided by the *WANDisco's CentOS repository* on CentOS7, see [stackoverflow](https://stackoverflow.com/questions/21820715/how-to-install-latest-version-of-git-on-centos-7-x-6-x)).
 
 ### Build instructions
 
