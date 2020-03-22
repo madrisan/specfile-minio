@@ -15,27 +15,43 @@ This repository contains a *specfile* that you can use to build MinIO from the s
 
 ### Pre-Requiments
 
-    sudo dnf install -y rpm-build golang
+    sudo dnf install -y rpm-build golang git
+    
+Note that git version 2 is required (tested with version 2.25.1).
 
 ### Build instructions
 
-    mkdir ~/rpmbuild/{SPECS,SOURCES}
+#### MinIO server
+
+    mkdir -p ~/rpmbuild/{SPECS,SOURCES}
     
     for f in minio.conf minio.service; do
       curl -# https://raw.githubusercontent.com/madrisan/specfile-minio/master/$f \
         -o ~/rpmbuild/SOURCES/$f
     done
-    curl -# https://raw.githubusercontent.com/madrisan/specfile-minio/master/minio.service \
-        -o ~/rpmbuild/SOURCES/minio.service
+    curl -# https://raw.githubusercontent.com/madrisan/specfile-minio/master/minio.spec \
+        -o ~/rpmbuild/SPECS/minio.spec
     
     curl -# -L https://github.com/minio/minio/archive/RELEASE.2020-03-14T02-21-58Z.tar.gz \
         -o ~/rpmbuild/SOURCES/RELEASE.2020-03-14T02-21-58Z.tar.gz
     
     rpmbuild -ba ~/rpmbuild/SPECS/minio.spec
 
+#### Minio client (mc)
+
+    mkdir -p ~/rpmbuild/{SPECS,SOURCES}
+    
+    curl -# https://raw.githubusercontent.com/madrisan/specfile-minio/master/mc.spec \
+        -o ~/rpmbuild/SPECS/mc.spec
+    
+    curl -# -L https://github.com/minio/minio/archive/RELEASE.2020-03-14T01-23-37Z.tar.gz \
+        -o ~/rpmbuild/SOURCES/RELEASE.2020-03-14T01-23-37Z.tar.gz
+    
+    rpmbuild -ba ~/rpmbuild/SPECS/mc.spec
+
 ### Installation
 
-The resulting .rpm package can be installed with `rpm` of `dnf`.
+The resulting .rpm packages can be installed with `rpm` of `dnf`.
 
 Before starting the *systemd* service `minio.service` you need to customize the configuration file `/etc/sysconfig/minio`.
 The volumes managed by MinIO must be configured in the variable `MINIO_VOLUMES`.
